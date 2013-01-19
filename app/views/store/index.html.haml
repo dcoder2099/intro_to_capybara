@@ -11,4 +11,4 @@
     .price_line
       %span.price= number_to_currency(product.price)
       = button_to t('.add_html'), line_items_path(product_id: product),
-        remote: true
+        remote: true, id: "product_#{product.id}"
