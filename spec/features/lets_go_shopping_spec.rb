@@ -48,6 +48,6 @@ describe "let's go shopping", type: :feature do
     fill_in 'Email', with: 'daniel@hedrick.org'
     select 'Check', from: 'Pay type'
     find('input[value="Place Order"]').click
-    page.should have_content 'Order Placed'
+    page.should have_content 'Thank you for your order'
   end
 end

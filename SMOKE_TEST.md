@@ -44,7 +44,8 @@
 1. Fill in the Name, Address, and Email text fields
 1. Select a Pay type of "Purchase order"
 1. Click the "Place Order" button
-1. Confirm returning to the homepage with a message of "Order Placed"
+1. Confirm returning to the homepage with a message of "Thank you for
+   your order"
 
 ### Backoffice
 
