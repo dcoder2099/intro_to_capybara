@@ -47,6 +47,28 @@
 1. Confirm returning to the homepage with a message of "Thank you for
    your order"
 
+#### Put it altogether...
+
+1. Visit the homepage ("/").
+1. Click the "Add to Cart" button for the CoffeeScript book.
+1. Confirm that the cart contains the CoffeeScript book.
+1. Click the "Add to Cart" button for the Programming Ruby 1.9 book.
+1. Confirm that the cart contains the Programming Ruby 1.9 book.
+1. Click the "Empty cart" button.
+1. Confirm that the cart is empty.
+1. Click the "Add to Cart" button for the Rails Test Prescriptions book.
+1. Confirm that the cart contains the Rails Test Prescriptions book.
+1. Click the "Checkout" button.
+1. Confirm the order form is shown.
+1. Click the "Place Order" button.
+1. Confirm that error messages are displayed for the name, address, email,
+   and pay type fields.
+1. Fill in the Name, Address, and Email text fields.
+1. Select a Pay type of "Purchase order".
+1. Click the "Place Order" button.
+1. Confirm returning to the homepage with a message of "Thank you for
+   your order".
+
 ### Backoffice
 
 #### Orders
