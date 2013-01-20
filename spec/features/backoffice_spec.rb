@@ -60,4 +60,42 @@ describe 'backoffice', type: :feature do
 
     Order.count.should eq(0)
   end
+
+  it 'manages products', js: true do
+    user = users :one
+
+    visit '/login'
+    page.should have_content 'Please Log In'
+    fill_in 'Name', with: user.name
+    fill_in 'Password', with: 'secret'
+    find('input[value="Login"]').click
+    page.should have_content 'Welcome'
+
+    click_link 'Products'
+    Product.count.should eq(3)
+
+    click_link 'New product'
+    fill_in 'Title', with: 'The Great American Novel'
+    fill_in 'Description', with: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.'
+    find('input[value="Create Product"]').click
+
+    find('div#error_explanation').should have_content "Image url can't be blank"
+    find('div#error_explanation').should have_content "Price is not a number"
+
+    fill_in 'Image url', with: 'novel.jpg'
+    fill_in 'Price', with: '12.34'
+    find('input[value="Create Product"]').click
+
+    page.should have_content 'Product was successfully created'
+
+    click_link 'Back'
+    Product.count.should eq(4)
+
+    page.execute_script 'window.confirm = function() { return true; }'
+    within('div#main table tr:last') do
+      click_link 'Destroy'
+    end
+
+    Product.count.should eq(3)
+  end
 end
