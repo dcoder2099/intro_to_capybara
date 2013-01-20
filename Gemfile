@@ -14,6 +14,7 @@ end
 group :test, :development do
   gem "rspec-rails", "~> 2.0"
   gem "capybara"
+  gem "database_cleaner"
 end
 
 # Gems used only for assets and not required

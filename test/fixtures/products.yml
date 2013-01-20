@@ -1,19 +1,7 @@
 # Read about fixtures at
 # http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
-one:
-  title: MyString
-  description: MyText
-  image_url: MyString
-  price: 9.99
-
-two:
-  title: MyString
-  description: MyText
-  image_url: MyString
-  price: 9.99
 #START:ruby
-
 ruby: 
   title:       Programming Ruby 1.9
   description: 
@@ -21,7 +9,7 @@ ruby:
     language out there.  If you need to get working programs
     delivered fast, you should add Ruby to your toolbox.
   price:       49.50
-  image_url:   ruby.png 
+  image_url:   ruby.jpg
 #END:ruby
 
 coffee:
@@ -33,7 +21,7 @@ coffee:
     you how to hold onto all the power and flexibility of JavaScript while
     writing clearer, cleaner, and safer code.
   price: 36.00
-  image_url: cs.png
+  image_url: cs.jpg
 
 test:
   title: Rails Test Prescriptions
