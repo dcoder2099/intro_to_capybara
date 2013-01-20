@@ -98,4 +98,41 @@ describe 'backoffice', type: :feature do
 
     Product.count.should eq(3)
   end
+
+  it 'manages users', js: true do
+    user = users :one
+
+    visit '/login'
+    page.should have_content 'Please Log In'
+    fill_in 'Name', with: user.name
+    fill_in 'Password', with: 'secret'
+    find('input[value="Login"]').click
+    page.should have_content 'Welcome'
+
+    click_link 'Users'
+    click_link 'New User'
+    fill_in 'Name', with: 'newuser'
+    fill_in 'Password', with: 'apass'
+    fill_in 'Confirm', with: 'apass'
+    find('input[value="Create User"]').click
+    page.should have_content 'User newuser was successfully created.'
+
+    find('input[value="Logout"]').click
+
+    visit '/login'
+    page.should have_content 'Please Log In'
+    fill_in 'Name', with: 'newuser'
+    fill_in 'Password', with: 'apass'
+    find('input[value="Login"]').click
+    page.should have_content 'Welcome'
+
+    click_link 'Users'
+
+    page.execute_script 'window.confirm = function() { return true; }'
+    within('div#main table tr:last') do
+      click_link 'Destroy'
+    end
+
+    page.should have_content 'Please Log In'
+  end
 end
